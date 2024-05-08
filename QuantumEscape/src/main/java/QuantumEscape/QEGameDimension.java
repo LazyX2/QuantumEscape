@@ -21,22 +21,24 @@ public class QEGameDimension {
 	public void move(int x, int y) {
 		player.x += x;
 		player.y += y;
-		generateDimension(player);
+		generateDimension();
 	}
 
-	public void generateDimension(Point loc) {
-		QEGameChunk base = game_map.getOrDefault(new Point((int)(Math.floor(loc.x/QEGameChunk.width)), (int)(Math.floor(loc.y/QEGameChunk.height))), null);
+	public void generateDimension() {
+		QEGameChunk base = game_map.getOrDefault(new Point((int)(Math.floor(player.x/QEGameChunk.width)), (int)(Math.floor(player.y/QEGameChunk.height))), null);
 		if (base == null) return;
 		for (int x = -1; x < 2; x++) {
-			for (int y = -1; y < 2; y++) {
-				Point p = new Point((int)(Math.floor(loc.x/QEGameChunk.width))+x, (int)(Math.floor(loc.y/QEGameChunk.height))+y);
-				QEGameChunk qegc = game_map.getOrDefault(p, null);
-				try {
-					if (qegc == null) game_map.put(p, base.nearChunks()[(int)Math.floor(Math.random()*2)].getClass().newInstance());
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
+			Point px = new Point((int)(Math.floor(player.x/QEGameChunk.width))+x, (int)(Math.floor(player.y/QEGameChunk.height)));
+			Point py = new Point((int)(Math.floor(player.x/QEGameChunk.width)), (int)(Math.floor(player.y/QEGameChunk.height))+x);
+			QEGameChunk qegc_x = game_map.getOrDefault(px, null);
+			QEGameChunk qegc_y = game_map.getOrDefault(py, null);
+			try {
+				if (qegc_x == null) game_map.put(px, base.nearChunks()[(int)Math.floor(Math.random()*2)].getClass().newInstance());
+				if (qegc_y == null) game_map.put(py, base.nearChunks()[(int)Math.floor(Math.random()*2)].getClass().newInstance());
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
+
 		}
 	}
 

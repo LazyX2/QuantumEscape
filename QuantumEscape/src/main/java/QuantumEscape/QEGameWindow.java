@@ -28,6 +28,14 @@ public class QEGameWindow extends JFrame implements KeyListener {
     public void keyPressed(KeyEvent e) {
         if (QuantumEscapeMain.screen == null) return;
         switch (e.getKeyCode()) {
+            case KeyEvent.VK_1: {
+                QuantumEscapeMain.screen.dimension_name = "test1";
+                break;
+            }
+            case KeyEvent.VK_2: {
+                QuantumEscapeMain.screen.dimension_name = "test2";
+                break;
+            }
             case KeyEvent.VK_W: {
                 QuantumEscapeMain.screen.dimension.move(0, -QuantumEscapeMain.speed);
                 break;
@@ -45,7 +53,7 @@ public class QEGameWindow extends JFrame implements KeyListener {
                 break;
             }
             default: {
-                //System.out.println(e.getExtendedKeyCode());
+                System.out.println(e.getExtendedKeyCode());
                 //In case of errors?
             }
         }

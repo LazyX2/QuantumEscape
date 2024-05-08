@@ -1,0 +1,10 @@
+chunks:
+    test_red: color[red], near[test_yellow|test_blue];
+    test_yellow: color[yellow], near[test_red|test_green];
+    test_blue: color[blue], near[test_green|test_yellow];
+    test_blue: color[green], near[test_red|test_blue];
+start: test_red;
+
+
+
+
