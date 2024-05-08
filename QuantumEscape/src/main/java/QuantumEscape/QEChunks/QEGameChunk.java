@@ -4,8 +4,8 @@ import java.awt.Color;
 
 public interface QEGameChunk {
 
-	int width = 16;
-	int height = 16;
+	int width = 32;
+	int height = 32;
 
 	QEGameChunk[] nearChunks();
 	Color vis();

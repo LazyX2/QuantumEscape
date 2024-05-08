@@ -30,26 +30,22 @@ public class QEGameWindow extends JFrame implements KeyListener {
         switch (e.getKeyCode()) {
             case KeyEvent.VK_W: {
                 QuantumEscapeMain.screen.dimension.move(0, -QuantumEscapeMain.speed);
-                System.out.println('w');
                 break;
             }
             case KeyEvent.VK_S: {
                 QuantumEscapeMain.screen.dimension.move(0, QuantumEscapeMain.speed);
-                System.out.println('s');
                 break;
             }
             case KeyEvent.VK_A: {
                 QuantumEscapeMain.screen.dimension.move(-QuantumEscapeMain.speed, 0);
-                System.out.println('a');
                 break;
             }
             case KeyEvent.VK_D: {
                 QuantumEscapeMain.screen.dimension.move(QuantumEscapeMain.speed, 0);
-                System.out.println('d');
                 break;
             }
             default: {
-                System.out.println(e.getExtendedKeyCode());
+                //System.out.println(e.getExtendedKeyCode());
                 //In case of errors?
             }
         }

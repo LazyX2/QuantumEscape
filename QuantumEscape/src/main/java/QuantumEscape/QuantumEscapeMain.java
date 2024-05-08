@@ -1,6 +1,7 @@
 package QuantumEscape;
 
 
+import java.awt.*;
 import java.io.IOException;
 
 public class QuantumEscapeMain {
@@ -10,6 +11,7 @@ public class QuantumEscapeMain {
     public static QEGameState gameState;
     public static QEGameLoop gameLoop;
     public static int speed = 3;
+
 
     public static void main(String[] args) {
         try {
